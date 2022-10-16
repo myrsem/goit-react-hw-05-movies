@@ -12,7 +12,7 @@ export const App = () => {
     <Container>
       <Header>
         <nav>
-          <Link to="/goit-react-hw-05-movies" end>
+          <Link to="/" end>
             Home
           </Link>
           <Link to="/movies">Movies</Link>
@@ -20,7 +20,7 @@ export const App = () => {
       </Header>
       <Suspense fallback={<p style={{textAlign: 'center'}}>Loading...</p>}>
       <Routes>
-        <Route path="/goit-react-hw-05-movies" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId/*" element={<MovieDetails />}></Route>
         <Route path="*" element={<NotFoundPage />} />

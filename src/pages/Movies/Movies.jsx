@@ -12,13 +12,13 @@ const Movies = () => {
   useEffect(() => {
     const query = searchParams.get('query');
     if (query === '') {
-      setMovies([])
-      return
+      setMovies([]);
+      return;
     }
     if (!query) {
-      setMovies(null)
-      inputForm.current.reset();
-      return
+      setMovies(null);
+      inputForm.current.value = '';
+      return;
     }
     if (query) {
       inputForm.current.value = query;
@@ -33,17 +33,20 @@ const Movies = () => {
 
   return (
     <>
-    <SearchForm action="" ref={inputForm} onSubmit={handleSubmit}>
-      <FormInput
-        name="search"
-        type="text"
-        autocomplete="off"
-        placeholder="Search movies"
-      />
-      <FormButton type="submit">Search</FormButton>
-    </SearchForm>
-    {movies && <FilmList movies={movies} />}
-    {movies?.length === 0 && <p style={{textAlign: 'center'}}>Nothing found</p>}
+      <SearchForm action="" onSubmit={handleSubmit}>
+        <FormInput
+          ref={inputForm}
+          name="search"
+          type="text"
+          autocomplete="off"
+          placeholder="Search movies"
+        />
+        <FormButton type="submit">Search</FormButton>
+      </SearchForm>
+      {movies && <FilmList movies={movies} />}
+      {movies?.length === 0 && (
+        <p style={{ textAlign: 'center' }}>Nothing found</p>
+      )}
     </>
   );
 };

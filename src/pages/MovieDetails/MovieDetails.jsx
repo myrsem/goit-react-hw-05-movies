@@ -31,7 +31,7 @@ const MovieDetails = () => {
   const location = useLocation();
 
   useEffect(() => {
-    API.getOneMovie(movieId).then(r => setMovie(r));
+    API.getOneMovie(movieId).then(setMovie);
   }, [movieId]);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const MovieDetails = () => {
         <Button
           type="button"
           onClick={() => { 
-            navigate(buttonLocation || '/goit-react-hw-05-movies');
+            navigate(buttonLocation || '/');
           }}
         >
           <span>
